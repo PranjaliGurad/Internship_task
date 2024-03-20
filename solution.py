@@ -5,7 +5,7 @@ import pandas as pd
 # from cleaning import data
 
 # df = data
-
+spacy.cli.download("en_core_web_md")
 # Load the pre-trained spaCy model
 nlp = spacy.load("en_core_web_md")
 
