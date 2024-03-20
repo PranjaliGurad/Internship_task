@@ -2,10 +2,20 @@ import streamlit as st
 import spacy
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
+import subprocess
 # from cleaning import data
 
 # df = data
-spacy.cli.download("en_core_web_md")
+# Function to check if model is available, if not, download it
+def setup_spacy_model():
+    if "en_core_web_md" not in spacy.util.registry.models:
+        try:
+            subprocess.call(["python", "-m", "spacy", "download", "en_core_web_md"])
+        except Exception as e:
+            print(f"Error downloading spaCy model: {e}")
+
+# Check and setup spaCy model
+setup_spacy_model()
 # Load the pre-trained spaCy model
 nlp = spacy.load("en_core_web_md")
 
