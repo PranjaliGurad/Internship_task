@@ -2,9 +2,9 @@ import streamlit as st
 import spacy
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-from cleaning import data
+# from cleaning import data
 
-df = data
+# df = data
 
 # Load the pre-trained spaCy model
 nlp = spacy.load("en_core_web_md")
